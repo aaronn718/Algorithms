@@ -2,4 +2,10 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/DataStructures/.vs/DataStructures/DesignTimeBuild
+*.suo
+*.user
+*.vs
+_ReSharper.*
+bin
+obj
+packages
