@@ -6,9 +6,10 @@ namespace Common.DS
     {
         public abstract void Sort(int[] myArray);
         public abstract string PrettyName();
-        public void PrintArray(int[] myArray)
+        public void PrintArray(int[] myArray, bool sorted)
         {
-            Console.WriteLine("The sorted array using {0}", PrettyName());
+            var wordSorted = sorted ? "sorted" : "unsorted";
+            Console.WriteLine("The {1} array using {0}", PrettyName(), wordSorted);
             for(int i = 0; i < myArray.Length; i++)
             {
                 Console.Write("[{0}]", myArray[i]);
