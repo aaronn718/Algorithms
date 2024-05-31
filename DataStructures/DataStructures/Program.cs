@@ -7,6 +7,7 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
+            Common.DS.BubbleSort.PrettyName();
             var command = 'c';
             Console.WriteLine("Traverse Heap!");
             var myHeap = new Heap { ShouldWriteToScreen = true };
