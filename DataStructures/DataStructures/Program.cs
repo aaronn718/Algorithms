@@ -30,13 +30,7 @@ namespace DataStructures
                 switch(command)
                 {
                     case 's':
-                        Console.WriteLine("Test sorts");
-                        var intCases = new Common.DS.Tests.SortTests.IntCases();
-                        var unsorted = intCases.IntArray_10();
-                        //bubble sort
-                        var sort = new Common.DS.BubbleSort();
-                        sort.Sort(unsorted);
-                        sort.PrintArray(unsorted);
+                        Common.DS.Tests.SortTests.TestAll();
 
                         break;
                     case 'h':
