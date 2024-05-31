@@ -19,7 +19,14 @@ namespace Common.DS
                 }
             }
 
-            Console.WriteLine("\n");
+            Console.WriteLine("");
+        }
+
+        public void Swap(int[] myArray, int position1, int position2)
+        {
+            var temp = myArray[position1];
+            myArray[position1] = myArray[position2];
+            myArray[position2] = temp;
         }
     }
 
@@ -27,8 +34,23 @@ namespace Common.DS
     {
         public override void Sort(int[] myArray)
         {
+            int count = 0;
             //obviously wrong
-            myArray[0] = 99;
+            //myArray[0] = 99;
+
+            for(int i = 0; i < myArray.Length; i++)
+            {
+                for(int j = (i+1); j < myArray.Length; j++) 
+                {
+                    if(myArray[i] > myArray[j])
+                    {
+                        //swap it
+                        Swap(myArray, i, j);
+                        count++;
+                    }
+                }
+            }
+            //Console.WriteLine("Looked at {0} elements", count);
         }
         public override string PrettyName()
         {

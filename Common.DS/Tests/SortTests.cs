@@ -9,7 +9,7 @@ namespace Common.DS.Tests
         public static void TestAll()
         {
             //Console.WriteLine("Test sorts");
-            var intCases = new IntCases(10);
+            var intCases = new IntCases(10, true);
             var unsorted = intCases.GetUnsorted();
             //bubble sort
             var sort = new Common.DS.BubbleSort();
@@ -25,10 +25,22 @@ namespace Common.DS.Tests
 
     public class IntCases
     {
-        public IntCases(int length)
+        public IntCases(int length, bool unique)
         {
-            Unsorted = new int[10] { 5, 7, 3, 6, 1, 2, 9, 10, 8, 4 };
-            Answer = new int[10] { 1,2,3,4,5,6,7,8,9,10};
+            // Unsorted = new int[10] { 5, 7, 3, 6, 1, 2, 9, 10, 8, 4 };
+            // Answer = new int[10] { 1,2,3,4,5,6,7,8,9,10};
+
+            Answer = new int[length];
+            Unsorted = new int[length];
+            Random rnd = new Random();
+            for(int i = 0; i < length; i++)
+            {
+                Answer[i] = Unsorted[i] = rnd.Next(0, 100);
+            }
+
+            var sort = new Common.DS.BubbleSort();
+         
+            sort.Sort(Answer);
         }
         private int[] Answer {get;set;}
         private int[] Unsorted {get;set;}
@@ -54,6 +66,8 @@ namespace Common.DS.Tests
                     return false;
                 }
             }
+
+            Console.WriteLine("Passed!");
 
             return true;
         }
