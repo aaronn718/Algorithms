@@ -7,7 +7,6 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            Common.DS.BubbleSort.PrettyName();
             var command = 'c';
             Console.WriteLine("Traverse Heap!");
             var myHeap = new Heap { ShouldWriteToScreen = true };
@@ -24,12 +23,22 @@ namespace DataStructures
             myHeap.PrettyPrint();
             while (command != 'q')
             {
-                Console.WriteLine("Available commands: p, q, h");
+                Console.WriteLine("Available commands: p, q, h, s");
                 Console.WriteLine("Press 'q' to quit:");
                 command = Console.ReadKey().KeyChar;
 
                 switch(command)
                 {
+                    case 's':
+                        Console.WriteLine("Test sorts");
+                        var intCases = new Common.DS.Tests.SortTests.IntCases();
+                        var unsorted = intCases.IntArray_10();
+                        //bubble sort
+                        var sort = new Common.DS.BubbleSort();
+                        sort.Sort(unsorted);
+                        sort.PrintArray(unsorted);
+
+                        break;
                     case 'h':
                         Console.WriteLine("heaptify test");
                         var heapC = Heap.Heaptify(unsortedArray);
