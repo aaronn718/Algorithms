@@ -13,7 +13,6 @@ namespace DataStructures
             int[] unsortedArray =     new int[] { 5, 7, 3, 6, 2, 9, 10, 8, 4 };
             myHeap.createHeapFromHeap(new int[] { 1, 4, 2, 5, 8, 7, 3, 6, 9, 10 });
 
-
             //Console.WriteLine("value at index 5 is [{0}]", myHeap.ValueAt(5));
             //Console.WriteLine("Parent of index 5 is [{0}]", myHeap.ValueAt(myHeap.FindParentIndex(5)));
             //myHeap.PrintHeapAsTree();
