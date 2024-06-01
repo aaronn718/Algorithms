@@ -106,11 +106,12 @@ exit point will be at 1 element
 
         private void qSort(int[] myArray, int left, int right)
         {
-            while(left < right)
+            if(left < right)
             {
                 //at this part, all the array was part to move bigger to right, and lesser to left
                 var pIndex = Partition(myArray, left, right);
-                qSort(myArray, left, pIndex);
+                //pIndex is already in place!
+                qSort(myArray, left, pIndex - 1);
                 qSort(myArray, pIndex + 1, right);
 
             }
@@ -123,9 +124,9 @@ exit point will be at 1 element
             var pIndex = left;
             var pValue = myArray[right]; //value of pivot
 
-            for(int i = left; i <= right; i++)
+            for(int i = left; i < right; i++)
             {
-                if(myArray[i] > pValue)
+                if(myArray[i] <= pValue) //for in duplication allow
                 {
                     //swap it
                     Swap(myArray, pIndex, i);

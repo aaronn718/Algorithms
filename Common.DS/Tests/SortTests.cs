@@ -9,13 +9,13 @@ namespace Common.DS.Tests
         public static void TestAll()
         {
             //Console.WriteLine("Test sorts");
-            var intCases = new IntCases(10, true);
+            var intCases = new IntCases(10, false);
             var unsorted = intCases.GetUnsorted();
             //bubble sort
             Sorts sort = new Common.DS.BubbleSort();
-            // sort.PrintArray(unsorted, false);
-            // sort.Sort(unsorted);
-            // sort.PrintArray(unsorted, true);
+            sort.PrintArray(unsorted, false);
+            sort.Sort(unsorted);
+            sort.PrintArray(unsorted, true);
 
             intCases.IsCorrect(unsorted);
             
