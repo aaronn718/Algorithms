@@ -12,23 +12,35 @@ namespace Common.DS.Tests
             var intCases = new IntCases(10, true);
             var unsorted = intCases.GetUnsorted();
             //bubble sort
-            var sort = new Common.DS.BubbleSort();
+            Sorts sort = new Common.DS.BubbleSort();
+            // sort.PrintArray(unsorted, false);
+            // sort.Sort(unsorted);
+            // sort.PrintArray(unsorted, true);
+
+            intCases.IsCorrect(unsorted);
+            
+            //Test Quick Sort
+            unsorted = intCases.GetUnsorted();
+            sort = new Common.DS.QuickSort();
             sort.PrintArray(unsorted, false);
             sort.Sort(unsorted);
             sort.PrintArray(unsorted, true);
 
             intCases.IsCorrect(unsorted);
-            
         }
         
     }
 
     public class IntCases
     {
-        public IntCases(int length, bool unique)
+        public IntCases(int length, bool easy)
         {
-            // Unsorted = new int[10] { 5, 7, 3, 6, 1, 2, 9, 10, 8, 4 };
-            // Answer = new int[10] { 1,2,3,4,5,6,7,8,9,10};
+            if(easy)
+            {
+                Unsorted = new int[10] { 5, 7, 3, 6, 1, 2, 9, 10, 8, 4 };
+                Answer = new int[10] { 1,2,3,4,5,6,7,8,9,10};
+                return;
+            }
 
             Answer = new int[length];
             Unsorted = new int[length];
