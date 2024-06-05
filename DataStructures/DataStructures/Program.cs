@@ -30,7 +30,8 @@ namespace DataStructures
                 switch(command)
                 {
                     case 's':
-                        Common.DS.Tests.SortTests.TestAll();
+                        //Common.DS.Tests.SortTests.TestAll();
+                        Common.DS.Tests.StringTests.TestAll();
 
                         break;
                     case 'h':
