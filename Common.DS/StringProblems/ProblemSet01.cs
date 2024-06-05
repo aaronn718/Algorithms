@@ -52,7 +52,7 @@ public class Solution {
  
         */
 
-        public  static int AppendCharacters(string s, string t)
+        public  static int prb1_AppendCharacters(string s, string t)
         {
             
             int count = 0;
@@ -90,6 +90,98 @@ public class Solution {
             Console.WriteLine("{0} and {1} became: {2}", s, t, combinedString);
 
             return count;
+        }
+
+        public static void prb1_AppendCharacters_Test(string s, string t, int answer)
+        {
+
+            var prb1 = prb1_AppendCharacters(s, t);
+            Console.WriteLine("Expecting: {0} Actual: {1}", answer, prb1);
+        }
+
+        /*
+         Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+Example 2:
+
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+Example 3:
+
+Input: nums = [3,3], target = 6
+Output: [0,1]
+ 
+
+Constraints:
+
+2 <= nums.length <= 104
+-109 <= nums[i] <= 109
+-109 <= target <= 109
+Only one valid answer exists.
+ 
+
+Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+         */
+
+        public static int[] prob2_indexSum_worst(int[] nums, int target)
+        {
+            var answer = new int[2];
+            //strat - find anything that's matching the target or less than and keep it as 1 index
+            int index1 = 0;
+            int num1 = nums[index1];
+            int index2 = 1;
+            int num2 = nums[index2];
+
+            //while(index1 < nums.Length)
+            //{
+            //    if(num1 > target)
+            //    {
+
+            //    }
+            //}
+            bool found = false;
+            //let's do the n^2 answer first
+            for(index1 = 0; found == false && index1 < nums.Length - 1; index1++)
+            {
+                for(index2 = 1; found == false && index2 < nums.Length; index2++ )
+                {
+                    if(nums[index1] + nums[index2] == target)
+                    {
+                        //break condition
+                        Console.WriteLine("Found the pair at {0} amd {1}", index1, index2);
+                        answer[0] = index1;
+                        answer[1] = index2;
+                        found = true;
+                    }
+                }
+            }
+
+            return answer;
+        }
+        public static void prob2_indexSum_worst_Test(int[] nums, int target, int[] answer)
+        {
+
+            var prob = prob2_indexSum_worst(nums, target);
+            if(answer[0] == prob[0] && answer[1] == prob[1])
+            {
+                Console.WriteLine("PASSED: Answer [{0},{1}]", answer[0], answer[1], prob[0], prob[1]);
+            }
+            else
+            {
+                Console.WriteLine("FAILED: Expecting: [{0},{1}] Actual: [{2},{3}]", answer[0], answer[1], prob[0], prob[1]);
+            }
+            
         }
     }
 }

@@ -11,15 +11,20 @@ namespace Common.DS.Tests
         {
             Console.WriteLine("Test All String");
 
-            var prb1 = ProblemSet01.AppendCharacters("coaching", "coding");
-            Console.WriteLine("Expecting: {0} Actual: {1}", 4, prb1);
+            ProblemSet01.prb1_AppendCharacters_Test("coaching", "coding", 4);
+            ProblemSet01.prb1_AppendCharacters_Test("abcd3", "a", 0);
+            ProblemSet01.prb1_AppendCharacters_Test("z", "abcde", 5);
 
-            prb1 = ProblemSet01.AppendCharacters("abcde", "a");
-            Console.WriteLine("Expecting: {0} Actual: {1}", 0, prb1);
+            Console.Clear();
+            //prb2
+            /*prob2_indexSum_worst
+             * Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+            */
+            ProblemSet01.prob2_indexSum_worst_Test(new int[] { 2, 7, 11, 15 }, 9, new int[] { 0, 1 });
+            ProblemSet01.prob2_indexSum_worst_Test(new int[] { 3,2,4 }, 6, new int[] { 1, 2 });
+            ProblemSet01.prob2_indexSum_worst_Test(new int[] { 3, 3 }, 6, new int[] { 0, 1 });
 
-
-            prb1 = ProblemSet01.AppendCharacters("z", "abcde");
-            Console.WriteLine("Expecting: {0} Actual: {1}", 5, prb1);
 
         }
 

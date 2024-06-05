@@ -30,6 +30,7 @@ namespace DataStructures
                 switch(command)
                 {
                     case 's':
+                        Console.Clear();
                         //Common.DS.Tests.SortTests.TestAll();
                         Common.DS.Tests.StringTests.TestAll();
 
