@@ -28,7 +28,23 @@ namespace Common.DS.Tests
 
             intCases.IsCorrect(unsorted);
         }
-        
+
+        public static void PracticeTest()
+        {
+            Console.Clear();
+            Console.WriteLine("Running Practice Tests");
+            var intCases = new IntCases(10, false);
+            var unsorted = intCases.GetUnsorted();
+            Sorts sort = new Common.DS.BubbleSort();
+            sort.PrintArray(unsorted, false);
+            sort.Sort(unsorted);
+            sort.PrintArray(unsorted, true);
+
+            unsorted = intCases.GetUnsorted();
+            sort = new Common.DS.PracticeSorts();
+            sort.Sort(unsorted);
+            sort.PrintArray(unsorted, true);
+        }
     }
 
     public class IntCases
@@ -83,5 +99,6 @@ namespace Common.DS.Tests
 
             return true;
         }
+    
     }
 }

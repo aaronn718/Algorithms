@@ -31,29 +31,7 @@ Output: [0,1]
 
         public class StrCases
         {
-            //public StrCases(int length, bool easy)
-            //{
-            //    if (easy)
-            //    {
-            //        Unsorted = new int[10] { 5, 7, 3, 6, 1, 2, 9, 10, 8, 4 };
-            //        Answer = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            //        return;
-            //    }
-
-            //    Answer = new int[length];
-            //    Unsorted = new int[length];
-            //    Random rnd = new Random();
-            //    for (int i = 0; i < length; i++)
-            //    {
-            //        Answer[i] = Unsorted[i] = rnd.Next(0, 100);
-            //    }
-
-            //    var sort = new Common.DS.BubbleSort();
-
-            //    sort.Sort(Answer);
-            //}
             private string Answer { get; set; }
-            //private int[] Unsorted { get; set; }
 
             public bool IsCorrect(string givenAnswer)
             {
