@@ -33,7 +33,7 @@ namespace Common.DS.Tests
         {
             Console.Clear();
             Console.WriteLine("Running Practice Tests");
-            var intCases = new IntCases(10, false);
+            var intCases = new IntCases(10, true);
             var unsorted = intCases.GetUnsorted();
             Sorts sort = new Common.DS.BubbleSort();
             sort.PrintArray(unsorted, false);
@@ -53,8 +53,12 @@ namespace Common.DS.Tests
         {
             if(easy)
             {
-                Unsorted = new int[10] { 5, 7, 3, 6, 1, 2, 9, 10, 8, 4 };
-                Answer = new int[10] { 1,2,3,4,5,6,7,8,9,10};
+                 Unsorted = new int[10] { 5, 7, 3, 6, 1, 2, 9, 10, 8, 4 };
+                 Answer = new int[10] { 1,2,3,4,5,6,7,8,9,10};
+                //Unsorted = new int[3] { 2,1,3};
+                 //Unsorted = new int[3] { 3,1,2};
+                // Unsorted = new int[3] { 1,2,3};
+                //Answer = new int[3] { 1,2,3};
                 return;
             }
 

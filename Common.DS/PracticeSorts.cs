@@ -11,8 +11,9 @@ namespace Common.DS
 
         protected override void DoSort(int[] myArray)
         {
-            return;
+            
         }
+
         public override string PrettyName()
         {
             return "Practice Sort";
