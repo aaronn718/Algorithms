@@ -1,7 +1,13 @@
 import ListGroup from "./components/ListGroup";
 
 function App(){
-  return <div><ListGroup /></div>;
+   const items = [
+        "Washington",
+        "California",
+        "Texas",
+        "Florida",
+    ];
+  return <div><ListGroup/></div>;
 }
 
 export default App;
