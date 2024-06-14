@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { MouseEvent } from "react";
 
-function ListGroup(items: string[]) {
+// 
+interface Props {
+    items: string[],
+    heading: string
+}
+
+function ListGroup(props: Props) {
     // const items = [
     //     "Washington",
     //     "California",
@@ -10,14 +16,14 @@ function ListGroup(items: string[]) {
     // ];
 
     //const handleClick = (index: number) => {console.log(index)};
-    //const [state, setState] = useState(initialValue);
+    //const [state, setState] = useState(initialValue); setState is the funciton to update state
     const [selectedIndex, setSelectedIndex] = useState(-1);
     return (
         <>
-            <h1>List Group</h1>
+            <h1>{props.heading}</h1>
             <ul className="list-group">
                 {
-                    items.map((item, index) => (
+                    props.items.map((item, index) => (
                         <li key={item} className={selectedIndex === index ? "list-group-item active" : "list-group-item"}
                             onClick={() => setSelectedIndex(index)}>{item}</li>
                     ))

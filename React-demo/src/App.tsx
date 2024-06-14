@@ -1,14 +1,18 @@
 import ListGroup from "./components/ListGroup";
 
 function App(){
-   const items2 = [
-        "Washington",
-        "California",
-        "Texas",
-        "Florida",
-        "from main app"
-    ];
-  return <div>{ListGroup(items2)}</div>;
+    let props = {
+      items : ["Washington",
+      "California",
+      "Texas",
+      "Florida",
+      "MainItem"], 
+      heading : "heading from main"
+    };
+    
+  return <> <div><ListGroup items={props.items} heading={props.heading} ></ListGroup></div>
+  <div><ListGroup items={["Blue", "Red", "Yellow"]} heading="list 2" ></ListGroup></div>
+  </>;
 }
 
 export default App;
