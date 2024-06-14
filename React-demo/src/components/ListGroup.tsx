@@ -3,10 +3,12 @@ import { MouseEvent } from "react";
 
 // 
 interface Props {
-    items: string[],
-    heading: string
+    items: string[];
+    heading: string;
+    onSelectItem: (item: string) => void;
 }
 
+//similar to webservice, the properties can be broken out by individual properties to be passed in
 function ListGroup(props: Props) {
     // const items = [
     //     "Washington",
@@ -25,7 +27,7 @@ function ListGroup(props: Props) {
                 {
                     props.items.map((item, index) => (
                         <li key={item} className={selectedIndex === index ? "list-group-item active" : "list-group-item"}
-                            onClick={() => setSelectedIndex(index)}>{item}</li>
+                            onClick={() => {setSelectedIndex(index); props.onSelectItem(item)}}>{item}</li>
                     ))
                 }
             </ul>

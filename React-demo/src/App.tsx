@@ -10,8 +10,12 @@ function App(){
       heading : "heading from main"
     };
     
-  return <> <div><ListGroup items={props.items} heading={props.heading} ></ListGroup></div>
-  <div><ListGroup items={["Blue", "Red", "Yellow"]} heading="list 2" ></ListGroup></div>
+    const handleSelectedItem = function(item: string){
+      console.log(item);
+    }
+
+  return <> <div><ListGroup items={props.items} heading={props.heading} onSelectItem={handleSelectedItem} ></ListGroup></div>
+  <div><ListGroup items={["Blue", "Red", "Yellow"]} heading="list 2"  onSelectItem={handleSelectedItem}></ListGroup></div>
   </>;
 }
 
