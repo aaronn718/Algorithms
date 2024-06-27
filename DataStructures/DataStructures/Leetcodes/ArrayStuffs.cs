@@ -104,7 +104,6 @@ merged: a p b q c   d
                 {
                     result[i] = wa1[j];
                     j++;
-
                 }
                 else
                 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Common.DS
 {
@@ -60,23 +61,38 @@ BigO(n^2) - loop through every element and shift the biggest down to the end of 
 
         protected override void DoSort(int[] myArray)
         {
-            int count = 0;
-            //obviously wrong
-            //myArray[0] = 99;
+            //i think this is linear sort?
+            // int count = 0;
+            // //obviously wrong
+            // //myArray[0] = 99;
 
-            for(int i = 0; i < myArray.Length; i++)
+            // for(int i = 0; i < myArray.Length; i++)
+            // {
+            //     for(int j = (i+1); j < myArray.Length; j++) 
+            //     {
+            //         if(myArray[i] > myArray[j])
+            //         {
+            //             //swap it
+            //             Swap(myArray, i, j);
+            //             count++;
+            //         }
+            //     }
+            // }
+            // //Console.WriteLine("Looked at {0} elements", count);
+
+            //THe real bubble sort!
+            for (int i = 0; i < myArray.Length; i++) //go through the whole array
             {
-                for(int j = (i+1); j < myArray.Length; j++) 
+                //shift biggest down the end of array
+                for (int j = 0; j < myArray.Length - i - 1; j++) //the last elements of the array is already sorted as biggest
                 {
-                    if(myArray[i] > myArray[j])
+                    if (myArray[j] > myArray[j + 1])
                     {
-                        //swap it
-                        Swap(myArray, i, j);
-                        count++;
+                        Swap(myArray, j, j + 1);
                     }
                 }
+
             }
-            //Console.WriteLine("Looked at {0} elements", count);
         }
         public override string PrettyName()
         {

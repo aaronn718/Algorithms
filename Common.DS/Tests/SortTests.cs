@@ -31,7 +31,7 @@ namespace Common.DS.Tests
 
         public static void PracticeTest()
         {
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine("Running Practice Tests");
             var intCases = new IntCases(10, true);
             var unsorted = intCases.GetUnsorted();
