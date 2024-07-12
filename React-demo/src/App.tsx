@@ -1,5 +1,12 @@
 import ListGroup from "./components/ListGroup";
 import DataFetcher from './components/DataFetcher';
+import getUserContext from "./components/ContextProvider";
+
+
+export interface AppUser {
+  Name: string,
+  Age: number
+}
 
 function App(){
   //   let props = {
@@ -19,9 +26,13 @@ function App(){
   // <div><ListGroup items={["Blue", "Red", "Yellow"]} heading="list 2"  onSelectItem={handleSelectedItem}></ListGroup></div>
   // </>;
 
+  var userContext = getUserContext();
   return (
     <div className="App">
       <header className="App-header">
+        <div>
+          user name is: {userContext.Name}
+        </div>
         <DataFetcher />
       </header>
     </div>
