@@ -43,7 +43,7 @@ function App(){
         {/* <DataFetcher /> */}
         {/* <Rectangle width={100} height={200}> </Rectangle> */}
         {/* <Rectangle props={width: 100,height:200} /> */}
-        <Rectangle width={300} height={500} color={rectColor}/>
+        <Rectangle width={300} height={500} color={rectColor} changeColor={changeRectColor}/>
         {/* pass a funciton */}
         <br></br>
           <button onClick={() => changeRectColor("Blue")}>Change to Blue</button>

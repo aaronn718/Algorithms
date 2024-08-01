@@ -3,7 +3,8 @@ import React from "react";
 interface rectProp {
     width: Number,
     height: Number,
-    color: string
+    color: string,
+    changeColor(col: string): void,
 };
 function Rectangle(props: rectProp){
     let styles = {
@@ -13,8 +14,10 @@ function Rectangle(props: rectProp){
         background: props.color
     };
 
-    return (<div style={styles}>
-    </div>);
+    return (<><div style={styles}>
+    </div>
+    <button onClick={() => props.changeColor("Green")}>From Child</button>
+    </>);
 }
 
 export default Rectangle;
