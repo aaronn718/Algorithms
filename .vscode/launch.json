@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C#: algorithms",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\MAC\\algorithms\\algorithms.csproj",
+            "launchConfigurationId": "TargetFramework=;algorithms"
+        }
+    ]
+}
