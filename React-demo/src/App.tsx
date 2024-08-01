@@ -32,6 +32,7 @@ function App(){
   };
 
   const [rectColor, changeRectColor] = useState("blue");
+  const [rectColor2, changeRectColor2] = useState("blue");
 
   var userContext = getUserContext();
   return (
@@ -41,13 +42,18 @@ function App(){
           user name is: {userContext.Name}
         </div>
         {/* <DataFetcher /> */}
-        {/* <Rectangle width={100} height={200}> </Rectangle> */}
-        {/* <Rectangle props={width: 100,height:200} /> */}
+        <div>
         <Rectangle width={300} height={500} color={rectColor} changeColor={changeRectColor}/>
-        {/* pass a funciton */}
         <br></br>
           <button onClick={() => changeRectColor("Blue")}>Change to Blue</button>
           <button onClick={() => changeRectColor("Red")}>Change to Red</button>
+        </div>
+        <div>
+        <Rectangle width={200} height={200} color={rectColor2} changeColor={changeRectColor2}/>
+        <br></br>
+          <button onClick={() => changeRectColor2("Blue")}>Change to Blue</button>
+          <button onClick={() => changeRectColor2("Red")}>Change to Red</button>
+          </div>
       </header>
     </div>
   );
