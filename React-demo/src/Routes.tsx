@@ -9,8 +9,10 @@ export const MyRoutes = () =>
     return (<>
     <BrowserRouter>
         <Routes>
-            <Route index element ={<PracticePage />}></Route>
+            {/* <Route index element ={<PracticePage />}></Route> */}
+            <Route index element ={<Calculator />} />
             <Route path="/cal" element={<Calculator />} />
+            <Route path="/practice" element={<PracticePage />} />
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     </BrowserRouter>
