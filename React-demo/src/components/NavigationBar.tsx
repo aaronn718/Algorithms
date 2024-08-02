@@ -8,6 +8,7 @@ export default function Navbar() {
         <ul>
             <CustomLink href="/cal" name="Calculator"/>
             <CustomLink href="/practice" name="Practice"/>
+            <CustomLink href="/weather" name="Weather"/>
         </ul>
 
 </nav></>);
@@ -16,24 +17,31 @@ export default function Navbar() {
 
 function CustomLink(props:LinkProp){
     let activeCss = "";
-    switch(window.location.pathname)
-    {
-        case "/":
-        case "/cal":
-            if(props.href  === "/cal"){
-            activeCss = "active";
-            console.log("cal class");
-            }
-
-            break;
-        case "/practice":
-            if(props.href  === "/practice"){
-            activeCss = "active";
-            console.log("practice");
-            }
-
-            break;
+    if(window.location.pathname === props.href) {
+        activeCss = "active";
     }
+    // switch(window.location.pathname)
+    // {
+    //     case "/":
+    //     case "/cal":
+    //         if(props.href  === "/cal"){
+    //         activeCss = "active";
+    //         }
+
+    //         break;
+    //     case "/practice":
+    //         if(props.href  === "/practice"){
+    //         activeCss = "active";
+    //         }
+
+    //         break;
+    //     case "/weather":
+    //         if(props.href  === "/practice"){
+    //         activeCss = "active";
+    //         }
+
+    //         break;
+    // }
     return (<li className={activeCss}>
         <a href={props.href}>{props.name}</a>
         </li>);
