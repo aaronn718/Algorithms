@@ -8,7 +8,6 @@ export default function Navbar() {
         <ul>
             <CustomLink href="/cal" name="Calculator"/>
             <CustomLink href="/practice" name="Practice"/>
-            {/* <CustomLink href="/practice">Practice</CustomLink> */}
         </ul>
 
 </nav></>);
