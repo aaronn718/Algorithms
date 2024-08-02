@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react"
-import { AppUser } from "../App";
+import { AppUser } from "../pages/PracticePage";
 
 let UserContextProvider = createContext<AppUser | undefined>(undefined);
 
