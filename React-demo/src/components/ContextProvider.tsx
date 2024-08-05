@@ -16,3 +16,9 @@ function getUserContext()
 }
 
 export default getUserContext;
+
+interface CountType{
+    count: number,
+    setCount(count: number): void
+}
+export const countContext = createContext<CountType | null>(null);

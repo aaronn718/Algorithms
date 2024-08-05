@@ -69,11 +69,11 @@ example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
         <button onClick={() => fetchData()}>Get Data</button>
         <p />
         <div>
-            {
+            {/* {
                 if (data?.properties?.periods != null) {
                     <label>Day</label>
                 }
-            }
+            } */}
         </div>
     </div>
     </>

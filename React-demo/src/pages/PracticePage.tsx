@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useContext } from "react";
 import getUserContext from "../components/ContextProvider";
 import Rectangle from "../components/Rectangle";
+import {countContext} from "../components/ContextProvider"
+import { Counter } from "../components/Counter";
 
 export interface AppUser {
     Name: string,
@@ -36,11 +38,17 @@ export const PracticePage = () =>
         width: Number
       };
 
+    const [count, setCount] = useState(0);
+    //because it's typescript, we got to define the values
+
     var userContext = getUserContext();
     return (<>
         <div>
           user name is: {userContext.Name}
         </div>
+        <countContext.Provider value={{count, setCount}}>
+          <Counter />
+        </countContext.Provider>
         {/* <DataFetcher /> */}
         <div>
         <Rectangle width={300} height={500} color={rectColor} changeColor={changeRectColor}/>
