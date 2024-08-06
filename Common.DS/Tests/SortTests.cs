@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Common.DS.Tests
@@ -44,6 +45,12 @@ namespace Common.DS.Tests
             sort = new Common.DS.PracticeSorts();
             sort.Sort(unsorted);
             sort.PrintArray(unsorted, true);
+
+            Console.WriteLine("System .NET sort");
+            var l = new List<int>(unsorted);
+            l = l.OrderBy(x => x).ToList(); //apprently you need to assign it back
+            
+            sort.PrintArray(l.ToArray(), true);
         }
     }
 
