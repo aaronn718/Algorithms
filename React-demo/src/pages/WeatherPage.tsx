@@ -1,11 +1,13 @@
 import { useState } from "react";
-import {Row, Col} from "antd"
-
+import {Row, Col, Button} from "antd"
 //using ant design for grid https://ant.design/docs/react/introduce
+
+
 interface DisplayWeatherData{
     message: string,
     data?: WeatherData
 }
+
 interface WeatherData {
     properties?: {
         generatedAt: string,
@@ -19,6 +21,7 @@ interface WeatherPeriod
     name: string,
     temperature: number,
     temperatureUnit: string,
+    shortForecast: string,
     icon: string
 }
 export const WeatherPage = () => {
@@ -53,7 +56,7 @@ example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
     */
    
     //const [data, setData] = useState<WeatherData>();
-    const [data, setData] = useState<DisplayWeatherData>({message: "Click Fetch Weather"});
+    const [data, setData] = useState<DisplayWeatherData>({message: "Click: Get Weather"});
 
     //const apiUrl = "https://api.weather.gov/gridpoints/TOP/31,80/forecast";
     //const apiUrl = "https://api.weather.gov/points/47.3359,-122.1754";
@@ -65,7 +68,7 @@ example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
           const response = await fetch(apiUrl);
           const result = await response.json();
 
-          setData({message: "Today's Weather Report", data: result});
+          setData({message: "Please wait while loading today's Weather Report...", data: result});
         
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -77,18 +80,23 @@ example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
     return(
         <>
     <div>
-        Weather Page: Demo RESTFull Calls
-        <a href="https://www.weather.gov/documentation/services-web-api">Go here for document</a>
-        <button onClick={() => fetchData()}>Get Weather</button>
+        <h1>Weather Page: Demo RESTFull Calls</h1>
+        <div>
+            <a href="https://www.weather.gov/documentation/services-web-api">Go here for document</a>
+        </div>
+        <div>
+            <p />
+            <Button type="primary" onClick={() => fetchData()}>Get Weather</Button>
+        </div>
         <p />
         <div>
-           <WeatherDisplayData {...data}/> {/*spread data out */}
+           <WeatherCube {...data}/> {/*spread data out */}
         </div>
     </div>
     </>
     );
 }
-export const WeatherDisplayData = (props: DisplayWeatherData) => {
+export const WeatherCube = (props: DisplayWeatherData) => {
     let pData = null;
     if(props.data != null && props.data?.properties?.periods != undefined)
     {
@@ -98,14 +106,12 @@ export const WeatherDisplayData = (props: DisplayWeatherData) => {
 
     return(<>{pData != null ? (<>
         {
-            <div style={{width: "600px"}}>
-            <Row gutter={[24, 24]} align={"middle"}>
-                
+            <div style={{width: "1000px"}}>
+                <Row gutter={[24, 24]} align={"middle"}>               
                 {
-                    pData.map((p) =><Col span={12}><div id="content"><img src={p.icon} /> <label>{p.name} is {p.temperature}&deg;{p.temperatureUnit}</label></div></Col>
-                )
+                    /*https://ant.design/components/grid*/
+                    pData.map((p) =><Col span={12}><div id="content"><img src={p.icon} style={{borderRadius:"50%"}} /> <label>{p.name} is {p.temperature}&deg;{p.temperatureUnit} - {p.shortForecast}</label></div></Col>)
                 }
-                
             </Row>
             </div>
         }
