@@ -1,6 +1,7 @@
 import { useState } from "react";
+import {Row, Col} from "antd"
 
-
+//using ant design for grid https://ant.design/docs/react/introduce
 interface DisplayWeatherData{
     message: string,
     data?: WeatherData
@@ -97,8 +98,17 @@ export const WeatherDisplayData = (props: DisplayWeatherData) => {
 
     return(<>{pData != null ? (<>
         {
-        pData.map((p) =><p> <img src={p.icon} /> <label>{p.name} is {p.temperature}&deg;{p.temperatureUnit}</label>
-        </p>)}
+            <div style={{width: "600px"}}>
+            <Row gutter={[24, 24]} align={"middle"}>
+                
+                {
+                    pData.map((p) =><Col span={12}><div id="content"><img src={p.icon} /> <label>{p.name} is {p.temperature}&deg;{p.temperatureUnit}</label></div></Col>
+                )
+                }
+                
+            </Row>
+            </div>
+        }
        </>) 
         : (<label>{props.message}</label>)}
         </>);

@@ -64,17 +64,25 @@ function handleClick(props:CalButtonNumProp)
         displayText = props.sym ? props.sym : "";
         if(displayText === "+")
         {
-            if(props.engine.lastNum > 0 && props.engine.lastNum < 10)
+            if(props.engine.lastClicked != "+") //don't do anything if enter is pressed more than once in a row
             {
-                calTotal += props.engine.lastNum;
 
+                if(props.engine.lastNum > 0 && props.engine.lastNum < 10)
+                {
+                    calTotal += props.engine.lastNum;
+
+                }
+                props.changeEngine({total: calTotal, lastNum:10 , lastClicked : "+",
+                    breadCrumbs: breadCrumbs + " +"
+                })
             }
-            props.changeEngine({total: calTotal, lastNum:10 , lastClicked : "+",
-                breadCrumbs: breadCrumbs + " +"
-            })
         }
         else if(displayText === "=")
         {   
+            if(props.engine.lastClicked != "=" && props.engine.lastClicked != "+") //don't do anything if enter is pressed more than once in a row
+            {
+
+            
             if(props.engine.lastNum > 0 && props.engine.lastNum < 10)
             {
                 calTotal += props.engine.lastNum;
@@ -82,6 +90,7 @@ function handleClick(props:CalButtonNumProp)
             props.changeEngine({total: calTotal, lastNum:10 , lastClicked : "=",
                 breadCrumbs: breadCrumbs + " = " + calTotal
             })
+        }
         }
     }
 
