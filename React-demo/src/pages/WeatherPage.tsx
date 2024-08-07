@@ -1,12 +1,17 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 
 
+interface DisplayWeatherData{
+    message: string,
+    data?: WeatherData
+}
 interface WeatherData {
     properties?: {
         generatedAt: string,
         periods: WeatherPeriod[],
-    }
+    },
 }
+
 interface WeatherPeriod
 {
     number: number,
@@ -46,20 +51,24 @@ example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
 
     */
    
-    const [data, setData] = useState<WeatherData>();
+    //const [data, setData] = useState<WeatherData>();
+    const [data, setData] = useState<DisplayWeatherData>({message: "Click Fetch Weather"});
+
     //const apiUrl = "https://api.weather.gov/gridpoints/TOP/31,80/forecast";
     //const apiUrl = "https://api.weather.gov/points/47.3359,-122.1754";
     const apiUrl = "https://api.weather.gov/gridpoints/SEW/127,54/forecast";
     
     const fetchData = async () => {
         try {
+            setData({message: "Loading...."}); //show loading message
           const response = await fetch(apiUrl);
           const result = await response.json();
-          setData(result);
+
+          setData({message: "Today's Weather Report", data: result});
         
         } catch (error) {
           console.error('Error fetching data:', error);
-          
+          setData({message: 'Error fetching data:' + error}); //show loading message
         }
     };
 
@@ -68,34 +77,29 @@ example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
         <>
     <div>
         Weather Page: Demo RESTFull Calls
-        <a href="https://www.weather.gov/documentation/services-web-api">Go here</a>
-        <div>
-            Result is: {data?.properties?.generatedAt}
-        </div>
-
-        <button onClick={() => fetchData()}>Get Data</button>
+        <a href="https://www.weather.gov/documentation/services-web-api">Go here for document</a>
+        <button onClick={() => fetchData()}>Get Weather</button>
         <p />
         <div>
-           <WeatherDisplayData {...data}/>
-            
+           <WeatherDisplayData {...data}/> {/*spread data out */}
         </div>
     </div>
     </>
     );
 }
-export const WeatherDisplayData: React.FC<WeatherData> = (props: WeatherData) => {
+export const WeatherDisplayData = (props: DisplayWeatherData) => {
     let pData = null;
-    if(props != null && props.properties?.periods != undefined)
+    if(props.data != null && props.data?.properties?.periods != undefined)
     {
-        //pData = props;
-        pData = props.properties?.periods;
-        console.log(pData.length + "is the length");
-    }
-    return(<>{pData != null ? (<>
-        {pData.map((p) =><p> <img src={p.icon} /> <label>{p.name} is {p.temperature}&deg;{p.temperatureUnit}</label>
+        pData = props.data.properties?.periods;
         
+    }
+
+    return(<>{pData != null ? (<>
+        {
+        pData.map((p) =><p> <img src={p.icon} /> <label>{p.name} is {p.temperature}&deg;{p.temperatureUnit}</label>
         </p>)}
        </>) 
-        : (<label>Nothing to display</label>)}
+        : (<label>{props.message}</label>)}
         </>);
 }
