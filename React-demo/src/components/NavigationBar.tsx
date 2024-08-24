@@ -9,6 +9,7 @@ export default function Navbar() {
             <CustomLink href="/cal" name="Calculator"/>
             <CustomLink href="/practice" name="Practice"/>
             <CustomLink href="/weather" name="Weather"/>
+            <CustomLink href="/steps" name="Steps"/>
         </ul>
 
 </nav></>);
