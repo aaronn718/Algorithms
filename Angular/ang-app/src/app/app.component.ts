@@ -9,5 +9,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.less'
 })
 export class AppComponent {
-  title = 'ang-app';
+  title = 'Aaron Angular App';
+  
+  OwnerName(){
+    return "Aaron Nguyen";
+  }
 }
